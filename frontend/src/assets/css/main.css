@@ -2,4 +2,21 @@ html, body {
     height: 100%;
     margin: 0;   
     background: white;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    color: #444444;
+}
+a{
+    transition: all .15s ease-in-out;
+}
+.carousel-indicators{
+    bottom: 135px !important;
+}
+.header-title h2 a:hover{
+    color: #0288d1 !important;
 }

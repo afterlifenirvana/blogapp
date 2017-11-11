@@ -1,39 +1,25 @@
 <template>
   <div id="app">
     <blog-header></blog-header>
-    <div class="bottom">
-      <side-tray></side-tray>
-      <!-- <blog-header></blog-header> -->
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Blogheader from './components/Header'
-import SideTray from './components/SideTray'
 export default {
   name: 'app',
   components: {
-    'blog-header': Blogheader,
-    'side-tray': SideTray
+    'blog-header': Blogheader
   }
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Yanone+Kaffeesatz:300,400');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Josefin+Slab:300,400,600,600i,700');
 #app{
-  font-family: 'Roboto Condensed', Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
+  font-family: 'Josefin Sans', sans-serif;
   height: 100%;
-  overflow-y: hidden;
-}
-.bottom{
-  font-family: 'Roboto Condensed', Helvetica, sans-serif;
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  overflow-y: hidden;
+  font-weight: 600;
 }
 </style>

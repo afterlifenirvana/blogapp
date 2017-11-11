@@ -1,9 +1,18 @@
 <template>
-  <div class="blog-header">
-    <div class="logo">Big 8</div>
-    <div class="links">
-      <div><a>The Blog.</a></div>
-      <div><a>Us.</a></div>
+  <div class="header-wrapper">
+    <div class="container blog-header">
+      <div class="logo">
+        <span>
+          big
+        </span>
+         <span> 
+           8
+         </span>
+      </div>
+      <div class="links">
+        <div><a>THE BLOG</a></div>
+        <div><a>US</a></div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,20 +24,26 @@ export default {
 </script>
 
 <style scoped>
+.header-wrapper{
+  background:#0288d1;
+}
 .blog-header{
   width: 100%;
-  height: 4em;
-  font-size: 1em;
+  height: 7rem;
   flex-basis: auto;
-  box-shadow: 0px 3px 15px rgba(0,0,0,0.3);
-  background: #4f8ef2; 
   align-items: center;
-  border-bottom:1px solid black;
   display: flex;
+  justify-content: space-between;
+  color: white;
+  z-index: 1;
+  font-weight: 600;
 }
 .logo{
-  
+  display: flex;
+  font-size: 3rem;
+  text-transform: capitalize; 
 }
+
 .links{
   display: flex;
   justify-content: space-around;
@@ -36,11 +51,12 @@ export default {
   text-align: center;
 }
 .links div{
-  font-size: 2em; 
+  padding-right: 20px; 
   height: 100%;
 }
-
-
+.links div a{
+  font-size: 1.1rem;
+}
 </style>
 
 

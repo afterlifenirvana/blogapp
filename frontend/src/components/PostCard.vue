@@ -1,30 +1,30 @@
 <template>
-  <div class="container post-card" v-bind:style="{height: height+'px'}">
-    <div class="blog-title">
-      Title
-      Title
-      Title
-      Title
-      Title
-      Title
-      Title
-    </div>
-    <div class="category">
-      #python
-    </div>
+  <div class="post-card"> 
+    <header class="post-header">
+      <div class="header-title">
+        <h2>
+          <a>
+            {{ title }} {{ title }}
+          </a>
+        </h2>
+      </div>
+      <div>
+        <h3 class="post-tags">
+          By <a>Rishi Sarswat</a> / In <a>Python</a>
+        </h3>
+      </div>
+      <span class="big-letter">
+        {{ big }}
+      </span>
+    </header>
     <div class="summary">
       <p>
-      This is some random blog about random stuff in life.
-      so dont be shitty be happy. we will talk about everything and anything. Maybe it will make sense maybe it won't who cares.
-      the desing is pretty shitty I know right but this is what happens when i design it.
+      {{ summary }} {{ summary }} {{ summary }} {{ summary }} {{ summary }}
       </p>
-    </div>  
-    <div class="detail">
-      <div>
-        Rishi Sarswat<br>
-        11/11/2017 
-      </div>
     </div>
+    <span class="read-more">
+      <a>Read on</a>
+    </span>
   </div>
 </template>
 
@@ -33,78 +33,107 @@ export default {
   name: 'post-card',
   data: function () {
     return {
-      height: 0,
-      rotate: 0
+      title: 'Some article you should read',
+      big: 'S',
+      summary: 'This is something you shoudl read cause i have written and it will be good so you should pay attention to this and see whats this all about',
+      author: 'Rishi Sarswat'
     }
-  },
-  mounted () {
-    this.$nextTick(function () {
-      window.addEventListener('resize', this.getWindowWidth)
-      this.getWindowWidth()
-      this.rotate = this.randomNumber(-10, 10)
-    })
-  },
-  methods: {
-    getWindowWidth (event) {
-      this.windowWidth = document.documentElement.clientWidth
-      this.height = this.$el.clientWidth
-    },
-    randomNumber (max, min) {
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.getWindowWidth)
-    window.removeEventListener('resize', this.getWindowHeight)
   }
 }
 </script>
 
 <style>
 .post-card{
-  width: 100%;
-  text-align: center;
-  padding-top: 2em;
-  min-height: 20vh;
-  font-weight: 500;
-  overflow: hidden; 
-  color:white;
-  font-family: "Yanone Kaffeesatz";
-  font-weight: 500;
-  border-bottom: 1px solid black;
-  /* box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23); */
+  margin-bottom: 9rem;
+  padding-bottom: 10rem;
 }
-
-/* .post-card::before{
-    content:'';
-    float:left;
-    padding-top:100%;
-} */
-
-.blog-title{
-  text-align: left;
-  font-size: 1.5em;
-  padding: 0.5em 1em 0em 1em;
-  font-size: 2.5vmin;
-  font-family: "Julius Sans One", sans-serif;
-  font-weight: 600;
+.post-card::after{
+  content: "";
+  background: rgba(51,51,51,0.2);
+  height: 1px;
+  width: 50px;
+  position: absolute;
+  margin-top: 14rem;
+  left: 50%;
+  margin-left: -25px;
 }
-.category{
-  text-align: left;
-  padding: 0em 1em 0em 2em;
+.post-header{
+  position: relative;
+}
+.big-letter{
+  font-size: 26rem;
+  line-height: 1.2;
+  color: rgba(0,0,0,.07);
+  z-index: 1;
+  position: absolute;
+  left: -7rem;
+  top: 50%;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.header-title{
+  padding-bottom: 2rem;
+}
+.header-title h2{
+  text-transform: uppercase;
+  font-size: 4rem;
   word-wrap: break-word;
-  font-size: 1em;
+  touch-action: manipulation;
+}
+.header-title h2 a{
+  cursor: pointer;
+}
+
+.post-tags{
+  font-size:1.5rem;
+  color: #888888 !important;
+  padding-bottom: 2rem;
+}
+.post-tags a{
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: border-bottom .1s ease-in-out;
+  transition: border-bottom .1s ease-in-out;
+  cursor: pointer;
+}
+.post-tags a:hover{
+  color: #333333 !important;
+}
+.summary{
+  font-size: 1.8rem;
+  font-family: 'Josefin Slab', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 4rem;
 }
 .summary p{
-  text-align: left;
-  padding: 0em 1em 0em 1.5em;
-  font-size: 1.8vmin;
+  height: 13rem;
+  display: -webkit-box;
+  /* Fallback for non-webkit */
+  margin: 0 auto;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 400;
+  text-overflow: ellipsis;
 }
-.detail{
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.8vmin;
-  padding: 0em 1em 0em 1.5em;
+.read-more{
+  color: white;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 12px 4.5rem 12px 4.5rem;
+  background: #039be5;
+  border: 1px solid #039be5;
+}
+.read-more:hover{
+  box-shadow: 0 10px 20px 0 rgba(1,1,1,.15);
 }
 </style>

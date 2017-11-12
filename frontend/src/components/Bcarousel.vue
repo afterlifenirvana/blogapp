@@ -34,10 +34,20 @@
 </template>
 
 <script>
+import bCarousel from 'bootstrap-vue/es/components/carousel/carousel'
+import bSlide from 'bootstrap-vue/es/components/carousel/carousel-slide'
+
 export default {
-  data: {
-    slide: 0,
-    sliding: null
+  name: 'carousel',
+  components: {
+    'b-carousel': bCarousel,
+    'b-carousel-slide': bSlide
+  },
+  data () {
+    return {
+      slide: 0,
+      sliding: null
+    }
   },
   methods: {
     onSlideStart (slide) {

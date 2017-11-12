@@ -1,6 +1,6 @@
 <template>
   <div class="bottom">
-    <b-carousel></b-carousel>
+    <carousel></carousel>
     <bot-tray></bot-tray>
   </div>
 </template>
@@ -12,7 +12,7 @@ import Bcarousel from './Bcarousel'
 export default {
   name: 'Index',
   components: {
-    'b-carousel': Bcarousel,
+    'carousel': Bcarousel,
     'bot-tray': BottomTray
   },
   data () {

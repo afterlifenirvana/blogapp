@@ -10,7 +10,12 @@
          </span>
       </div>
       <div class="links">
-        <div><a>THE BLOG</a></div>
+        <div>
+          <b-dropdown id="ddown1" text="BLOG" class="m-md-2">
+            <b-dropdown-item>GEEKY</b-dropdown-item>
+            <b-dropdown-item>SOME RANDOM SHIT</b-dropdown-item>
+          </b-dropdown>
+        </div>
         <div><a>US</a></div>
       </div>
     </div>
@@ -18,8 +23,13 @@
 </template>
 
 <script>
+import bDropdown from 'bootstrap-vue/es/components/dropdown/dropdown'
+
 export default {
-  name: 'blog-header'
+  name: 'blog-header',
+  components: {
+    bDropdown
+  }
 }
 </script>
 
@@ -31,7 +41,7 @@ export default {
   width: 100%;
   height: 7rem;
   flex-basis: auto;
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
   color: white;
@@ -41,9 +51,7 @@ export default {
 .logo{
   display: flex;
   font-size: 3rem;
-  text-transform: capitalize; 
 }
-
 .links{
   display: flex;
   justify-content: space-around;

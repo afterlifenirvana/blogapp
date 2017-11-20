@@ -5,7 +5,7 @@
         <span>
           big
         </span>
-         <span> 
+         <span>
            8
          </span>
       </div>
@@ -36,6 +36,10 @@ export default {
 <style scoped>
 .header-wrapper{
   background:#0288d1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 .blog-header{
   width: 100%;
@@ -59,12 +63,10 @@ export default {
   text-align: center;
 }
 .links div{
-  padding-right: 20px; 
+  padding-right: 20px;
   height: 100%;
 }
 .links div a{
   font-size: 1.1rem;
 }
 </style>
-
-

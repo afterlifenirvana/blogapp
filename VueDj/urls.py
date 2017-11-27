@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from app.views import index
+from app.views import PostView
 from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='home'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-
+    url(r'^api/posts/', PostView.as_view(),name='posts_api')
 ]

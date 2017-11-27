@@ -5,13 +5,8 @@
         <h3 class="title-head">{{ header }}</h3>
       </div>
       <div class="content-section">
-        <div class="post-section">
-          <post-card></post-card>
-          <post-card></post-card>
-          <post-card></post-card>
-          <post-card></post-card>
-          <post-card></post-card>
-          <post-card></post-card>
+        <div class="post-section" >
+          <post-card v-for="item in data" :item="item" :key="item.id" ></post-card>
         </div>
         <span class="load-more">
           load more
@@ -32,6 +27,12 @@ export default {
     return {
       header: 'LATEST POSTS'
     }
+  },
+  props: {
+    data: {
+      type: Array,
+      required: true
+    }
   }
 }
 </script>
@@ -47,8 +48,8 @@ export default {
   transform: translate(0px,-99px);
   background: white;
   box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
-  padding: 15rem 0 16rem 0;
-  max-width: 1170px;
+  padding: 16rem 0 15rem 0;
+  max-width: 1240px;
   margin: 0 auto 10rem;
 }
 .posts-header{
@@ -59,7 +60,8 @@ export default {
   font-size: 1.5rem;
   text-transform: uppercase;
   text-align: center;
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
+  font-weight: 600;
 }
 .title-head::after{
   background: rgba(51,51,51,0.2);
@@ -67,7 +69,7 @@ export default {
   height: 1px;
   width: 50px;
   position: absolute;
-  margin-top: 8rem;
+  margin-top: 6rem;
   left: 50%;
   margin-left: -25px;
 }
@@ -90,6 +92,7 @@ export default {
   padding: 12px 4.5rem 12px 4.5rem;
   background: black;
   border: 1px solid black;
+  cursor: pointer;
 }
 .load-more:hover{
   box-shadow: 0 10px 20px 0 rgba(1,1,1,.15);

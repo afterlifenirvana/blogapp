@@ -12,12 +12,60 @@ body{
     color: #444444;
 }
 a{
+    webkit-font-smoothing: antialiased;
     transition: all .15s ease-in-out;
     cursor: pointer;
+}
+.dropdown-item:focus{
+    outline: none;
+    color:  #0288d1;
+    background-color: white;
+}
+.dropdown-item:hover{
+    padding-left: 25px;
+}
+.dropdown-item:active{
+    color:  #0288d1;
 }
 .carousel-indicators{
     bottom: 135px !important;
 }
 .header-title h2 a:hover{
     color: #0288d1 !important;
+}
+#ddown1 button{
+    height: 100%;
+    background-color: #0288d1 !important;
+    border: 0px;
+    box-shadow: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+#ddown1>div{
+    min-width: 200px;
+    border-radius: 0px;
+    box-shadow: 0 30px 50px 0 rgba(0,0,0,.2);
+    transition: opacity .2s ease-in-out;
+}
+.VueCarousel-wrapper{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.VueCarousel-inner{
+    flex:1;
+}
+.VueCarousel-dot-inner{
+    opacity: 0.6;
+    transition: opacity .2s ease;
+}
+.VueCarousel-dot-inner:hover{
+    opacity: 1;
+}
+.VueCarousel-dot--active>div{
+    opacity: 1;
+}
+.VueCarousel-pagination{
+    transform: translateY(-200px)
 }

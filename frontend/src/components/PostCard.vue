@@ -4,22 +4,22 @@
       <div class="header-title">
         <h2>
           <a>
-            {{ title }} {{ title }}
+            {{ item.title }}
           </a>
         </h2>
       </div>
       <div>
         <h3 class="post-tags">
-          By <a>Rishi Sarswat</a> / In <a>Python</a>
+          By <a>{{ item.author.user.first_name + ' ' + item.author.user.last_name }}</a> / In <a>{{ item.category }}</a>
         </h3>
       </div>
       <span class="big-letter">
-        {{ big }}
+        {{ item.title[0] }}
       </span>
     </header>
     <div class="summary">
       <p>
-      {{ summary }} {{ summary }} {{ summary }} {{ summary }} {{ summary }}
+        {{ item.short_summary }}
       </p>
     </div>
     <span class="read-more">
@@ -33,16 +33,21 @@ export default {
   name: 'post-card',
   data: function () {
     return {
-      title: 'Some article you should read',
-      big: 'S',
-      summary: 'This is something you shoudl read cause i have written and it will be good so you should pay attention to this and see whats this all about',
-      author: 'Rishi Sarswat'
+    }
+  },
+  beforeMount () {
+    // console.log(this.item)
+  },
+  props: {
+    item: {
+      type: Object,
+      required: true
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .post-card{
   margin-bottom: 9rem;
   padding-bottom: 10rem;
@@ -86,6 +91,7 @@ export default {
   font-size: 4rem;
   word-wrap: break-word;
   touch-action: manipulation;
+  font-weight: 600;
 }
 .header-title h2 a{
   cursor: pointer;
@@ -97,32 +103,32 @@ export default {
   padding-bottom: 2rem;
 }
 .post-tags a{
-  text-decoration: none;
-  padding-bottom: 3px;
   border-bottom: 1px solid transparent;
-  -webkit-transition: border-bottom .1s ease-in-out;
+  padding-bottom: 3px;
   transition: border-bottom .1s ease-in-out;
-  cursor: pointer;
+  text-decoration: none;
 }
 .post-tags a:hover{
-  color: #333333 !important;
+  border-bottom: 1px solid;
+  color: black;
 }
 .summary{
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: 'Josefin Slab', sans-serif;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-bottom: 4rem;
 }
 .summary p{
-  height: 13rem;
+  height: 13.5rem;
+  font-weight: 600;
+  line-height: 1.4;
   display: -webkit-box;
   /* Fallback for non-webkit */
   margin: 0 auto;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-weight: 400;
   text-overflow: ellipsis;
 }
 .read-more{

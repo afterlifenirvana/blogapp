@@ -9,6 +9,10 @@
 import Blogheader from './components/Header'
 export default {
   name: 'app',
+  data () {
+    return {
+    }
+  },
   components: {
     'blog-header': Blogheader
   }
@@ -21,5 +25,6 @@ export default {
   font-family: 'Josefin Sans', sans-serif;
   height: 100%;
   font-weight: 600;
+  position: relative;
 }
 </style>

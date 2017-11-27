@@ -1,60 +1,19 @@
 <template>
   <div  class="carousel-wrapper">
-    <b-carousel id="carousel1"
-                style="text-shadow: 1px 1px 2px #333;"
-                controls
-                indicators
-                background="#ababab"
-                :interval="4000"
-                img-width="1024"
-                img-height="480"
-                v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
-    >
-
-      <!-- Text slides with image -->
-      <b-carousel-slide caption="First slide"
-                        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-                        img-src="https://lorempixel.com/1024/480/technics/2/"
-      ></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://lorempixel.com/1024/480/technics/4/">
-        <h1>Hello world!</h1>
-      </b-carousel-slide>
-
-      <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://lorempixel.com/1024/480/technics/8/">
-      </b-carousel-slide>
-
-      <!-- Slides with img slot -->
-      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-      <b-carousel-slide>
-        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480"
-             src="https://lorempixel.com/1024/480/technics/5/" alt="image slot">
-      </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          eros felis, tincidunt a tincidunt eget, convallis vel est. Ut pellentesque
-          ut lacus vel interdum.
-        </p>
-      </b-carousel-slide>
-
-    </b-carousel>
-
-    <p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
-
+    <carousel class="carousel" :perPage="1" paginationColor="#ffffff" :autoplayTimeout="3000" paginationActiveColor="#ffffff" :autoplay="true" :autoplayHoverPause="true" :loop="true">
+      <slide class="slide-wrapper">
+          <cover-post></cover-post>
+      </slide>
+      <slide class="slide-wrapper">
+          <cover-post></cover-post>
+      </slide>
+    </carousel>
   </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel'
+import CoverPost from './CoverPost'
 export default {
   data () {
     return {
@@ -69,18 +28,29 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     }
+  },
+  components: {
+    Carousel,
+    Slide,
+    CoverPost
   }
 }
 </script>
 <style scoped>
 .carousel-wrapper{
-  height:100%;
+  height: 92%;
+  background: #0288d1;
+  padding-top: 15rem;
 }
 .carousel{
   width: 100%;
   background: #0288d1;
   height:100%;
-  position:fixed;
 }
-
+.slide-wrapper{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 </style>
